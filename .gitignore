@@ -1,0 +1,15 @@
+.DS_Store
+/.build
+/Packages
+/*.xcodeproj
+xcuserdata/
+DerivedData/
+.swiftpm/config/registries.json
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.netrc
+Package.resolved
+.swiftpm/xcode/xcshareddata/xcschemes/Run.xcscheme
+.swiftpm/xcode/xcshareddata/xcschemes/LegeferendaKaitseContents.xcscheme
+.swiftpm/xcode/xcshareddata/xcschemes/legeferenda-kaitse.xcscheme
+.swiftpm/xcode/xcshareddata/xcschemes/legeferenda-kaitse-Package.xcscheme
+.swiftpm/xcode/xcshareddata/xcschemes/AWSProvider.xcscheme
