@@ -31,9 +31,7 @@ let package = Package(
                 .product(name: "Pioneer", package: "pioneer"),
                 .target(name: "AWSProvider"),
             ],
-            swiftSettings: [
-                .unsafeFlags(["-cross-module-optimization"], .when(configuration: .release)),
-            ]),
+            path: "Sources/KMSProvider"),
         .target(name: "AWSProvider",
                 dependencies: [
                     .product(name: "Vapor", package: "vapor"),
