@@ -76,10 +76,12 @@ public struct PPClient {
     
     public func sendOtp(to phoneNumber: String, refid: String) async throws {
         let _ = try await pinpoint.sendOTPMessage(.init(applicationId: self.configuration!.appId!, sendOTPMessageRequestParameters: .init(brandName: "Legeferenda", channel: "SMS", destinationIdentity: phoneNumber, originationIdentity: "LEGEFERENDA", referenceId: refid)))
+        let _ = try aws.syncShutdown()
     }
     
     public func verifyOtp(_ otp: String, to phoneNumber: String, refid: String) async throws -> Bool {
         let resp = try await pinpoint.verifyOTPMessage(.init(applicationId: self.configuration!.appId!, verifyOTPMessageRequestParameters: .init(destinationIdentity: phoneNumber, otp: otp, referenceId: refid)))
+        let _ = try aws.syncShutdown()
         return resp.verificationResponse.valid ?? false
     }
 }
