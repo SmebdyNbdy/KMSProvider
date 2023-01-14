@@ -10,6 +10,7 @@ let package = Package(
     products: [
         .library(name: "AWSProvider", targets: ["AWSProvider"]),
         .library(name: "KMSProvider", targets: ["KMSProvider"]),
+        .library(name: "PPProvider", targets: ["PPProvider"])
     ],
     dependencies: [
         .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0"),
@@ -20,6 +21,16 @@ let package = Package(
         .package(url: "https://github.com/d-exclaimation/pioneer", from: "0.10.0"),
     ],
     targets: [
+        .target(
+            name: "PPProvider",
+            dependencies: [
+                .product(name: "Vapor", package: "vapor"),
+                .product(name: "SotoCore", package: "soto-core"),
+                .product(name: "SotoPinpoint", package: "soto"),
+                .product(name: "Graphiti", package: "Graphiti"),
+                .target(name: "AWSProvider"),
+            ],
+            path: "Sources/PPProvider"),
         .target(
             name: "KMSProvider",
             dependencies: [
